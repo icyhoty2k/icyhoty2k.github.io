@@ -36,6 +36,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # THE CODE FACTS ARE COUNTED, NOT FETCHED. Lines of C++, image formats and
+      # keyboard shortcuts cannot come from the API -- they are read off the
+      # source tree, the same way QuickImageViewer's own build-site.py does it.
+      # Without this checkout those three pills would silently vanish from the
+      # strip on every scheduled run.
+      #
+      # The repository is public, so no token is needed. A shallow clone is
+      # enough: nothing here looks at history.
+      - uses: actions/checkout@v4
+        with:
+          repository: icyhoty2k/QuickImageViewer
+          path: _qiv
+          fetch-depth: 1
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
@@ -45,7 +59,10 @@ jobs:
           # Raises the API limit from 60 requests an hour per shared runner IP
           # to 1,000 for this repository. The script works without it too.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/build-stats.py
+        run: python tools/build-stats.py --qiv-src _qiv
+
+      - name: Do not commit the borrowed checkout
+        run: rm -rf _qiv
 
       - name: Commit, but only if a number actually moved
         run: |
