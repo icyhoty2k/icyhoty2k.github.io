@@ -302,4 +302,23 @@ footer .spacer { flex: 1; }
     .hero { padding: 56px 0 40px; }
     .hero-inner { gap: 28px; }
     .hero-mark { width: 96px; height: 96px; }
+
+    /* TAP TARGETS. Measured on a 375px viewport: the nav links were 25px tall
+       and the footer links 24px. Google's threshold is 48px, and a 24px target
+       is a genuinely annoying thing to hit with a thumb.
+
+       Padding rather than font-size, so the text stays the size it should be
+       and only the hit area grows. Negative margin keeps the row from getting
+       taller than it needs to look.
+
+       Inline links inside paragraphs are left alone on purpose -- they are
+       exempt from the guidance, and padding them would wreck the line spacing. */
+    .sitenav a.navlink,
+    .sitenav a.brand,
+    footer .row a {
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+
+    footer .row { gap: 10px 18px; margin: -11px 0; }
 }
