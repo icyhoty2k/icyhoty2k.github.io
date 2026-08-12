@@ -2,9 +2,8 @@
   <!--
     The `i` mark, as geometry rather than type.
 
-    Same numbers as globals/play-developer/render-developer-art.py in the
-    private Claude repo, so the site, the Play developer icon and the Play
-    header all draw the identical letter:
+    Same numbers as the Play developer-art renderer, so the site, the Play
+    developer icon and the Play header all draw the identical letter:
 
       centre 256,256   R 168
       stem width 0.36 R, top -0.20 R, bottom +0.86 R, colour split at 0.63

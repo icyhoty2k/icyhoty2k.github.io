@@ -1,13 +1,13 @@
-# IDE. This repo is PUBLIC and IntelliJ IDEA's project config has no business in
+# IDE. This repo is public and IntelliJ IDEA's project config has no business in
 # it -- it carries local paths, module layout and sometimes a run configuration
 # with machine-specific values.
 .idea/
 *.iml
 
-# Claude. Nothing AI-related belongs in a public repo. This is a backstop, not
-# the rule -- the rule is "do not write it here at all".
-.claude/
-CLAUDE.md
+# Private working notes. Kept out of the published repo; the canonical copies
+# live in the private notes repository.
+.notes/
+NOTES.md
 
 # OS and editor droppings
 Thumbs.db
