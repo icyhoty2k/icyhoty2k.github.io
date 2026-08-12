@@ -166,48 +166,67 @@ h2 {
 
 /* --- statistics strip ---------------------------------------------------- */
 
-/* Numbers, not charts. Six unrelated current values with no time series behind
-   them; a chart of those is a table wearing a costume, and it would cost a
-   library on a site that promises no third parties.
+/* PILLS, matching QuickImageViewer's own strip. A first version here was a grid
+   of six large cells; next to the desktop site it read as a different product.
+   Same shape, same wrap-and-centre behaviour, same value-then-label order.
 
-   auto-fit rather than a fixed column count, so the row becomes 6 / 3 / 2 wide
-   as the screen narrows without a single media query. */
+   Icons are inline SVG rather than the emoji the desktop strip uses. Same
+   reason the navigation was converted: an emoji is drawn by whichever vendor
+   made the font, so a row of six is a row of six different illustration styles.
+
+   Numbers, not charts. Six unrelated current values with no series behind them;
+   a chart of those is a table wearing a costume, and it would cost a library on
+   a site that promises no third parties. */
 .statstrip {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 6px 0;
 }
 
 .stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
     background: var(--surface);
-    padding: 20px 14px;
-    text-align: center;
     color: var(--text);
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    transition: background .15s ease;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: border-color .15s ease, transform .15s ease;
 }
 
-.stat:hover { background: var(--surface-2); text-decoration: none; }
+.stat:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.stat svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+    color: var(--muted);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stat:hover svg { color: var(--accent); }
 
 .stat-value {
-    font-size: 1.6rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
 }
 
-.stat-label {
-    font-size: 0.82rem;
-    color: var(--muted);
-    letter-spacing: 0.02em;
+.stat-label { color: var(--muted); font-size: 0.82rem; }
+
+@media (max-width: 620px) {
+    .statstrip { gap: 8px; }
+    .stat { padding: 8px 12px; font-size: 0.85rem; }
 }
 
 /* --- product cards ------------------------------------------------------ */
