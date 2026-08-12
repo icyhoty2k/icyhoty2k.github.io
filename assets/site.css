@@ -260,11 +260,25 @@ h2 {
 
    Fixed aspect and object-fit so a portrait phone shot and a landscape desktop
    shot sit in the same grid without one of them stretching. width/height are
-   declared so the browser reserves the space and the card does not jump as the
-   image arrives. */
+   declared in the HTML so the browser reserves the space and the card does not
+   jump as the image arrives.
+
+   HEIGHT: AUTO IS LOAD-BEARING, AND aspect-ratio DOES NOT WORK WITHOUT IT.
+   The <img> tags carry width/height attributes, which are presentational hints:
+   this rule overrides the width one with width:100%, but if it declares no
+   height at all then the HTML height attribute survives as the USED height. Both
+   dimensions are then definite and `aspect-ratio` is ignored outright.
+
+   That is not theoretical -- it shipped. The two cards rendered 504x563 and
+   504x462 instead of 504x284, because their height attributes were 563 and 462.
+   The desktop shot was cropped to a narrow portrait slice of a 2688x1436 frame,
+   and the Android shot was upscaled 2x past its own source height, which is
+   what made it look soft. Declaring height:auto lets the aspect-ratio win and
+   both cards become 16/9 again. */
 .card-shot {
     display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: top center;

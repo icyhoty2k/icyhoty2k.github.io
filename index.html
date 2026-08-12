@@ -173,7 +173,15 @@
         </article>
 
         <article class="card">
-            <img class="card-shot" loading="lazy" width="1000" height="462"
+            <!-- 1200x675 is the file's real size AND exactly 16:9, which is the box
+                 .card-shot renders. The attributes must express the DISPLAYED ratio,
+                 not the source photo's: they are presentational hints, and a height
+                 that disagrees with the CSS aspect-ratio is what broke this card
+                 before -- height="462" was taken literally and the image was upscaled
+                 2x past its own source height. Rebuilt from
+                 playStore/screenshots/play/land-1-advanced.png; never from the raw
+                 captures one directory up, which still have the status bar on them. -->
+            <img class="card-shot" loading="lazy" width="1200" height="675"
                  src="assets/shots/qiv-remote.webp"
                  alt="qIV Remote running on an Android phone in landscape, showing the remote control screen">
             <div class="card-body">
