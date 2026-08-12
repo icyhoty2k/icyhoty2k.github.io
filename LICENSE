@@ -1,0 +1,36 @@
+SCOPE
+=====
+
+This licence covers the CODE in this repository: the HTML, the CSS and the SVG
+markup. Take it, learn from it, reuse it.
+
+It does NOT cover the written content or the identity. The biography, the product
+descriptions, the photographs, the name "icyhoty2k" and the "i" mark identify a
+particular person and are not offered for reuse. Copy the markup, not the person.
+
+Inter is licensed separately under the SIL Open Font License; see
+assets/fonts/OFL.txt.
+
+
+MIT License
+===========
+
+Copyright (c) 2026 Ivan Hristov Yanev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

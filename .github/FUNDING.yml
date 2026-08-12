@@ -1,0 +1,20 @@
+# Puts the "Sponsor" button in this repository's header.
+#
+# Both profiles were live before this file existed -- they already fund the
+# QuickImageViewer repo. An entry pointing at an unenrolled account shows
+# visitors a "not accepting sponsorships" page, which is worse than no button.
+#
+# 🚫 THIS HAS NOTHING TO DO WITH THE ANDROID APP. Anything bought for use inside
+# qIV Remote must go through Google Play Billing and nowhere else. Sponsorship
+# funds the work; it unlocks nothing, and it must never be presented as a way to
+# get a paid feature.
+
+github: icyhoty2k
+ko_fi: ivanhristovyanev
+
+# Ko-fi sits alongside Sponsors rather than instead of it: it reaches people with
+# no GitHub account, which is nearly everyone who is not a developer.
+#
+# They are not equivalent underneath. GitHub covers the processing fees on
+# Sponsors, so that route delivers close to the full amount; Ko-fi payments are
+# ordinary PayPal or Stripe transactions and carry their fees.

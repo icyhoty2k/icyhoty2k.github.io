@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — icyhoty2k</title>
 
-<meta name="description" content="Ivan Yanev, independent developer in Bulgaria. Hand-written Windows software and Android apps, built small and quick.">
+<meta name="description" content="Ivan Yanev, Montana, Bulgaria. Personal trainer by day, self-taught developer by night — QuickImageViewer for Windows and qIV Remote for Android.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://icyhoty2k.github.io/about.html">
 
@@ -16,15 +16,20 @@
 <body>
 
 <!--
-    DRAFT BIO. Written from what is verifiably true of the existing work, for
-    the user to rewrite in their own voice. Nothing here is invented: the line
-    counts, the framework choice and the licence all come from the repository.
+    WHAT IS ON THIS PAGE AND WHY.
 
-    PRIVACY: the name and icyhoty2k@gmail.com are published on purpose and
-    already appear throughout the desktop app. The home address, phone number
-    and date of birth are NOT public and must never appear on this site --
-    note that Google Play publishes the address of an earning developer on the
-    Play developer page, which is a separate surface and an accepted decision.
+    The trainer-by-day detail is here at the user's explicit request, on the
+    grounds that it is already public on their Facebook profile and that a
+    reader is better served by more context than less. It is also simply the
+    most interesting true thing about the work: sixty thousand lines of Win32
+    C++ written by someone whose job is not software.
+
+    DELIBERATELY OMITTED, even though Facebook shows them: date of birth,
+    relationship status, family. They are on the private list, they would not
+    improve this page, and a public page is a bad place to discover you have
+    changed your mind. Home address and phone number likewise never appear here
+    -- note the Play developer page publishes the address separately, which is
+    a different surface and a decision already taken.
 -->
 
 <nav class="sitenav">
@@ -40,51 +45,95 @@
 <main class="wrap prose">
 
     <h1>About</h1>
-    <p class="meta">Ivan Yanev &middot; Bulgaria</p>
+    <p class="meta">Ivan Hristov Yanev &middot; Montana, Bulgaria &middot; English and Bulgarian</p>
 
     <p>
-        I write software on my own, mostly in the evenings, and I publish it under
-        <strong>icyhoty2k</strong>. What ties it together is not a platform or a language
-        but a preference: programs should start instantly, do the job, and then get out of
-        the way.
+        I am a <strong>personal trainer</strong>. I have worked at SilverGym in Montana
+        since 2010, and that is the job that pays for the flat and the coffee.
+    </p>
+    <p>
+        Computers are the other half, and they came first. I have been around them since
+        I was small &mdash; taking them apart, putting them back together, and still
+        building and assembling machines now. I studied
+        <strong>informatics at ПМГ Монтана</strong>, the maths and science high school
+        here, which is where the programming started properly.
+    </p>
+    <p>
+        I did not go on to a computing degree, and I have never written software for a
+        living. I write it in the evenings and publish it as <strong>icyhoty2k</strong>.
+        Nobody assigns me tickets and nobody sets the deadlines, which turns out to be the
+        whole reason the programs come out the way they do.
+    </p>
+    <p>
+        I also hold an <strong>electrician's qualification</strong> and work with
+        electricity, which is less of a detour than it sounds: it is the same instinct as
+        opening a computer to see what is inside. The
+        <a href="cv.html">longer record is here</a> if you want it.
     </p>
 
-    <h2>How it gets built</h2>
+    <h2>What that changes</h2>
     <p>
         QuickImageViewer is about sixty thousand lines of C++ written directly against
-        Win32 and Direct2D, with no UI framework underneath it. That is an unfashionable
-        choice and a deliberate one. A framework would have saved months and cost the
-        thing the whole program is for &mdash; the moment between double-clicking a file
-        and seeing it. Speed is not a feature there; it is the product.
+        Win32 and Direct2D, with no UI framework underneath it. On a paid project that
+        decision would never survive a planning meeting &mdash; a framework saves months.
+        But a framework also costs the thing the whole program exists for: the moment
+        between double-clicking a file and seeing the picture. There, speed is not a
+        feature. It is the product.
     </p>
     <p>
-        The Android side is Java and XML views for the same reason: I would rather know
-        what the code is doing than have it done elegantly somewhere I cannot see.
+        Working without deadlines means I can make that trade. It also means I can stop.
+        A program can be <em>finished</em> rather than permanently in progress, and most
+        of mine are.
     </p>
 
     <h2>What I care about</h2>
+    <ul>
+        <li>No account where an account is not needed.</li>
+        <li>No telemetry phoning home to report how you looked at a photograph.</li>
+        <li>Settings that survive a restart, every time.</li>
+        <li>A keyboard shortcut for everything, because reaching for the mouse is a tax.</li>
+        <li>Software that opens now, not in a moment.</li>
+    </ul>
+
+    <h2>The work so far</h2>
     <p>
-        No accounts where an account is not needed. No telemetry phoning home to tell me
-        how you use a picture viewer. Settings that survive a restart. Keyboard shortcuts
-        for everything, because reaching for the mouse is a tax. And software that is
-        <em>finished</em> rather than permanently in progress.
+        <strong>QuickImageViewer</strong> &mdash; a free image viewer for Windows 10 and 11.
+        Forty-nine formats, 224 keyboard shortcuts, released under the AGPL, and no paid
+        tier of any kind.
+        <a href="https://icyhoty2k.github.io/QuickImageViewer/">Website</a> &middot;
+        <a href="https://github.com/icyhoty2k/QuickImageViewer">Source</a>
+    </p>
+    <p>
+        <strong>qIV Remote</strong> &mdash; the Android companion, written in Java and XML
+        views. It drives the desktop viewer over your own network: next, previous,
+        slideshow, zoom, a live preview of what the PC is showing, and a fuzzy find that
+        opens a picture when you type part of its name. In closed testing on Google Play,
+        and it needs testers.
+        <a href="https://icyhoty2k.github.io/QuickImageViewer/qiv-remote.html">What it does</a>
     </p>
 
     <h2>What is next</h2>
     <p>
-        More Android work, and eventually games. The catalogue is small today; the
-        approach will not change as it grows.
+        More Android work, and eventually games. The catalogue is small today and the
+        approach will not change as it grows: built by hand, quick to open, and not
+        interested in your data.
     </p>
 
     <h2>Contact</h2>
     <p>
         <a href="mailto:icyhoty2k@gmail.com">icyhoty2k@gmail.com</a> &middot;
-        <a href="https://github.com/icyhoty2k">github.com/icyhoty2k</a>
+        <a href="https://github.com/icyhoty2k">github.com/icyhoty2k</a> &middot;
+        <a href="https://www.facebook.com/IvanHristovYanev">Facebook</a> &middot;
+        <a href="https://www.instagram.com/icyhoty2k/">Instagram</a>
     </p>
     <p>
-        Bug reports are welcome, and the ones that come with a file that reproduces the
-        problem get fixed fastest. For anything about a specific app, the
-        <a href="support.html">support page</a> lists where each one is tracked.
+        Email and GitHub are the two that get read. The social links are there so the name
+        lines up across places, not because they are good ways to reach me.
+    </p>
+    <p>
+        Bug reports are welcome, and the ones that arrive with a file that reproduces the
+        problem get fixed fastest. Per-app details are on the
+        <a href="support.html">support page</a>.
     </p>
 
 </main>
@@ -96,6 +145,7 @@
         <a href="./">Home</a>
         <a href="support.html">Support</a>
         <a href="https://github.com/icyhoty2k">GitHub</a>
+        <a href="https://github.com/sponsors/icyhoty2k">Sponsor</a>
     </div>
 </footer>
 
