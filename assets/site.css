@@ -164,6 +164,52 @@ h2 {
     margin: 0 0 22px;
 }
 
+/* --- statistics strip ---------------------------------------------------- */
+
+/* Numbers, not charts. Six unrelated current values with no time series behind
+   them; a chart of those is a table wearing a costume, and it would cost a
+   library on a site that promises no third parties.
+
+   auto-fit rather than a fixed column count, so the row becomes 6 / 3 / 2 wide
+   as the screen narrows without a single media query. */
+.statstrip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.stat {
+    background: var(--surface);
+    padding: 20px 14px;
+    text-align: center;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: background .15s ease;
+}
+
+.stat:hover { background: var(--surface-2); text-decoration: none; }
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
 /* --- product cards ------------------------------------------------------ */
 
 .cards {

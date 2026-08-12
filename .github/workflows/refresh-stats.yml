@@ -1,0 +1,60 @@
+# Keeps the statistics strip on index.html honest.
+#
+# The numbers are written into the HTML at build time rather than fetched in the
+# browser, because this site's support page says it makes no third-party
+# requests -- calling api.github.com from the page would put every visitor's IP
+# on GitHub's servers and make that false.
+#
+# The consequence is that the strip is only true on the day it was written.
+# Nothing in this repository changes when downloads drift, so only a SCHEDULE
+# can catch it.
+#
+# WEEKLY, NOT DAILY. Every run that finds a new number makes a commit, and a
+# commit a day on a one-person repository buries the real history under somebody
+# else's stars. Trigger it by hand from the Actions tab whenever a figure
+# matters sooner.
+name: Refresh the statistics strip
+
+on:
+  schedule:
+    # Mondays, 06:41 UTC. Deliberately not on the hour: GitHub queues the
+    # scheduled runs everybody sets for :00, and a cron at a busy minute can be
+    # delayed a long while or dropped entirely.
+    - cron: '41 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Rewrite the strip
+        env:
+          # Raises the API limit from 60 requests an hour per shared runner IP
+          # to 1,000 for this repository. The script works without it too.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/build-stats.py
+
+      - name: Commit, but only if a number actually moved
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "no change - nothing to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: refresh the statistics strip [skip ci]"
+          git push
