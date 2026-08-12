@@ -176,10 +176,38 @@ h2 {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 26px 26px 22px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: border-color .18s ease, transform .18s ease;
 }
+
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+    .card:hover { transform: none; }
+}
+
+/* The screenshot. A page about image software with no images on it was the
+   whole reason the landing page read as dead -- and Google's own starter guide
+   asks for images placed near the text they relate to.
+
+   Fixed aspect and object-fit so a portrait phone shot and a landscape desktop
+   shot sit in the same grid without one of them stretching. width/height are
+   declared so the browser reserves the space and the card does not jump as the
+   image arrives. */
+.card-shot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top center;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+}
+
+.card-body { padding: 24px 26px 22px; display: flex; flex-direction: column; flex: 1; }
 
 .card h3 {
     margin: 0 0 4px;
