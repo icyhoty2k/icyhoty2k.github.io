@@ -1,4 +1,10 @@
+# robots.txt is only ever read from the DOMAIN ROOT. A copy at
+# /QuickImageViewer/robots.txt is ignored by every crawler -- it is not a
+# per-directory file -- so this one has to declare the sitemaps for every site
+# hosted under icyhoty2k.github.io, not just the one at the root.
+
 User-agent: *
 Allow: /
 
 Sitemap: https://icyhoty2k.github.io/sitemap.xml
+Sitemap: https://icyhoty2k.github.io/QuickImageViewer/sitemap.xml
