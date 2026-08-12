@@ -1,0 +1,4 @@
+Copyright (c) 2026 Ivan Yanev
+
+Site content and code: see the repository.
+Inter is licensed under the SIL Open Font License - assets/fonts/OFL.txt

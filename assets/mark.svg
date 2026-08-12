@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="icyhoty2k">
+  <!--
+    The `i` mark, as geometry rather than type.
+
+    Same numbers as globals/play-developer/render-developer-art.py in the
+    private Claude repo, so the site, the Play developer icon and the Play
+    header all draw the identical letter:
+
+      centre 256,256   R 168
+      stem width 0.36 R, top -0.20 R, bottom +0.86 R, colour split at 0.63
+      dot radius 0.20 R, centre -0.62 R
+
+    Flat shoulder, rounded foot. A fully rounded top reads as a pill; the
+    accent foot stops the two-tone reading as a half-filled progress capsule.
+    Both were real first drafts.
+  -->
+  <defs>
+    <clipPath id="stem">
+      <path d="M225.8,222.4 H286.2 V370.3 A30.2,30.2 0 0 1 225.8,370.3 Z"/>
+    </clipPath>
+  </defs>
+  <path d="M225.8,222.4 H286.2 V370.3 A30.2,30.2 0 0 1 225.8,370.3 Z" fill="#f8fafc"/>
+  <rect x="220" y="334.6" width="76" height="80" fill="#38bdf8" clip-path="url(#stem)"/>
+  <circle cx="256" cy="151.8" r="33.6" fill="#38bdf8"/>
+</svg>

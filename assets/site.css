@@ -1,0 +1,277 @@
+/* ==========================================================================
+   icyhoty2k.github.io
+
+   ONE stylesheet, no framework, no CDN. Every font is vendored in
+   assets/fonts/ -- the site says it uses no third parties and that has to be
+   literally true, which means no Google Fonts, no analytics, no embeds.
+
+   Palette matches QuickImageViewer's site.css so the two read as one hand,
+   and matches the Play developer art, which is generated from the same
+   numbers.
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('fonts/inter-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('fonts/inter-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+:root {
+    --bg:        #0f172a;
+    --surface:   #1e293b;
+    --surface-2: #172033;
+    --border:    #2b3a52;
+    --text:      #f8fafc;
+    --muted:     #94a3b8;
+    --accent:    #38bdf8;
+    --accent-dk: #0284c7;
+    --radius:    14px;
+    --maxw:      1080px;
+}
+
+/* Light mode is a real mode, not an afterthought: a developer page gets opened
+   from a Play listing on a phone in daylight as often as from a desktop at
+   night. */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg:        #f8fafc;
+        --surface:   #ffffff;
+        --surface-2: #eef2f7;
+        --border:    #d7dee8;
+        --text:      #0f172a;
+        --muted:     #566579;
+        --accent:    #0284c7;
+        --accent-dk: #075985;
+    }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- header ------------------------------------------------------------- */
+
+.sitenav {
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+.sitenav .wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 62px;
+}
+
+.sitenav .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.sitenav .brand img { width: 26px; height: 26px; display: block; }
+.sitenav .spacer { flex: 1; }
+.sitenav a.navlink { color: var(--muted); font-size: 0.95rem; }
+.sitenav a.navlink:hover, .sitenav a.navlink[aria-current="page"] { color: var(--text); }
+
+/* --- hero --------------------------------------------------------------- */
+
+.hero { padding: 84px 0 56px; }
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.hero-mark {
+    width: 132px;
+    height: 132px;
+    flex: none;
+    filter: drop-shadow(0 0 26px color-mix(in srgb, var(--accent) 35%, transparent));
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.hero p.lead {
+    margin: 0;
+    max-width: 46ch;
+    color: var(--muted);
+    font-size: 1.12rem;
+}
+
+/* The row of glyphs, matching the Play header. Inline SVG so it inherits
+   currentColor and needs no extra request. */
+.glyphrow {
+    display: flex;
+    gap: 18px;
+    margin-top: 22px;
+    color: var(--muted);
+}
+.glyphrow svg { width: 26px; height: 26px; flex: none; }
+
+/* --- sections ----------------------------------------------------------- */
+
+section { padding: 30px 0 56px; }
+
+h2 {
+    font-size: 1.05rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+}
+
+/* --- product cards ------------------------------------------------------ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 26px 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.card .plat {
+    color: var(--muted);
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.card p { margin: 0 0 18px; color: var(--muted); }
+.card .grow { flex: 1; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+.tag {
+    font-size: 0.8rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 3px 11px;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn {
+    display: inline-block;
+    padding: 9px 17px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+.btn:hover { text-decoration: none; border-color: var(--accent); }
+
+.btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #06121f;
+}
+.btn.primary:hover { background: var(--accent-dk); border-color: var(--accent-dk); color: #fff; }
+
+/* --- callout ------------------------------------------------------------ */
+
+.callout {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+}
+.callout h3 { margin: 0 0 8px; font-size: 1.15rem; }
+.callout p  { margin: 0 0 14px; color: var(--muted); }
+.callout ol { margin: 0 0 16px; padding-left: 20px; color: var(--muted); }
+.callout li { margin-bottom: 6px; }
+.callout :last-child { margin-bottom: 0; }
+
+/* --- prose pages -------------------------------------------------------- */
+
+.prose { max-width: 68ch; padding: 56px 0 72px; }
+.prose h1 { font-size: 2.1rem; letter-spacing: -0.03em; margin: 0 0 6px; }
+.prose .meta { color: var(--muted); margin: 0 0 34px; }
+.prose h2 {
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-size: 1.35rem;
+    color: var(--text);
+    margin: 38px 0 12px;
+}
+.prose p, .prose li { color: var(--muted); }
+.prose strong { color: var(--text); font-weight: 600; }
+
+/* --- footer ------------------------------------------------------------- */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0 46px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+footer .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+footer .spacer { flex: 1; }
+
+@media (max-width: 620px) {
+    .hero { padding: 56px 0 40px; }
+    .hero-inner { gap: 28px; }
+    .hero-mark { width: 96px; height: 96px; }
+}
