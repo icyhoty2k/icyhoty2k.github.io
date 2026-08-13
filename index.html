@@ -68,9 +68,27 @@
 
 <nav class="sitenav">
     <div class="wrap">
-        <a class="brand" href="./"><img src="assets/mark.svg" alt="">icyhoty2k</a>
+        <!-- TIGHT box, and two of them.
+
+             mark.svg is drawn in a square viewBox, which is right for a favicon
+             and wrong beside text: the letter is narrow, so four fifths of that
+             square is empty space the browser still lays out. Next to the
+             wordmark it reads as a gap that no amount of CSS can close, because
+             the gap is inside the image. mark-tight.svg crops the box to the ink.
+
+             The <picture> is not decoration either. The mark's stem is #f8fafc,
+             and in light mode --bg is also #f8fafc, so the stem disappears and
+             leaves a floating dot above a foot. The -light file draws the stem
+             in ink instead. -->
+        <a class="brand" href="./">
+            <picture>
+                <source srcset="assets/mark-tight-light.svg" media="(prefers-color-scheme: light)">
+                <img src="assets/mark-tight.svg" alt="">
+            </picture>
+            icyhoty2k
+        </a>
         <span class="spacer"></span>
-        <a class="navlink" href="#work">Work</a>
+        <a class="navlink" href="#projects">Projects</a>
         <a class="navlink" href="about.html">About</a>
         <a class="navlink" href="support.html">Support</a>
     </div>
@@ -78,7 +96,12 @@
 
 <header class="hero">
     <div class="wrap hero-inner">
-        <img class="hero-mark" src="assets/mark.svg" alt="">
+        <!-- Same reason as the navigation mark: #f8fafc on a #f8fafc page is
+             an invisible stem. Square box is fine here - it stands alone. -->
+        <picture>
+            <source srcset="assets/mark-light.svg" media="(prefers-color-scheme: light)">
+            <img class="hero-mark" src="assets/mark.svg" alt="">
+        </picture>
         <div>
             <h1>icyhoty2k</h1>
             <!-- The second line of the signature. The mark, the name and this
@@ -149,8 +172,8 @@
 <!-- STATS-END -->
 </section>
 
-<section id="work" class="wrap">
-    <h2>Work</h2>
+<section id="projects" class="wrap">
+    <h2>Projects</h2>
     <div class="cards">
 
         <article class="card">

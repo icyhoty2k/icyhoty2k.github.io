@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80.00 18.00 40.00 168.00" role="img" aria-label="icyhoty2k productions">
+  <title>icyhoty2k productions</title>
+  <defs>
+    <clipPath id="icyhoty2k-mark-stem">
+      <path d="M 82.00 80.00 L 118.00 80.00 L 118.00 168.00 A 18.00 18.00 0 0 1 100.00 186.00 L 100.00 186.00 A 18.00 18.00 0 0 1 82.00 168.00 Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#icyhoty2k-mark-stem)">
+    <rect x="82.00" y="80.00" width="36.00" height="66.78" fill="#f8fafc"/>
+    <rect x="82.00" y="146.78" width="36.00" height="39.22" fill="#38bdf8"/>
+  </g>
+  <circle cx="100.00" cy="38.00" r="20.00" fill="#38bdf8"/>
+</svg>

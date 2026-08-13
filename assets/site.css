@@ -103,7 +103,11 @@ a:hover { text-decoration: underline; }
     letter-spacing: -0.01em;
 }
 
-.sitenav .brand img { width: 26px; height: 26px; display: block; }
+/* Height, not width. The tight mark is a tall narrow box (40 x 168 units), so
+   fixing the width would squash it; fixing the height lets the width fall out
+   of the aspect ratio and the gap beside the wordmark becomes the real gap. */
+.sitenav .brand img { height: 26px; width: auto; display: block; }
+.sitenav .brand picture { display: flex; }
 .sitenav .spacer { flex: 1; }
 .sitenav a.navlink { color: var(--muted); font-size: 0.95rem; }
 .sitenav a.navlink:hover, .sitenav a.navlink[aria-current="page"] { color: var(--text); }
