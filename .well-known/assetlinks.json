@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "net.icyhoty2k.silverstarar",
+      "sha256_cert_fingerprints": [
+        "7A:D1:DB:9B:EA:4B:EA:D5:75:3B:31:7B:3E:B8:69:54:82:A1:97:F8:7E:9F:E9:81:CD:CA:F9:A3:BB:E3:47:C8"
+      ]
+    }
+  }
+]
