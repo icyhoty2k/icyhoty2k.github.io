@@ -355,6 +355,70 @@ h2 {
 }
 .btn.primary:hover { background: var(--accent-dk); border-color: var(--accent-dk); color: #fff; }
 
+/* --- the Google Play button --------------------------------------------
+   Same treatment as the qIV site's store row, for the same reason: this
+   button sat beside a Download button in the identical accent blue, which
+   reads as "two links" rather than "two products" -- and it carried no mark
+   at all, so nothing on it said which store it goes to.
+
+   PLAY'S OWN GREEN, not the site accent. #01875f is the store's, and it is
+   the colour somebody is already looking for when they came to install an
+   app. White label on it clears contrast in BOTH themes, which the accent
+   button's dark label would not -- so this one rule serves light and dark
+   without a second definition under the prefers-color-scheme block.
+
+   NOT the official Play artwork: that badge is Google's, has its own sizing
+   and clear-space rules, and is an image this site would have to fetch or
+   vendor. The mark below is four paths of CSS-free SVG, so it stays inside
+   the no-CDN rule and scales with the text.
+   ---------------------------------------------------------------------- */
+.btn.play {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #01875f;
+    border-color: #01875f;
+    color: #ffffff;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(61, 220, 132, 0.30),
+                0 0 18px -5px rgba(61, 220, 132, 0.55);
+}
+
+.btn.play:hover {
+    background: #00a06f;
+    border-color: #00a06f;
+    color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(61, 220, 132, 0.50),
+                0 0 28px -3px rgba(61, 220, 132, 0.75);
+}
+
+/* 1.35em, not 1em. Below about 1.2 the four colours resolve to a single
+   green smudge and the mark stops saying anything. */
+.btn.play svg {
+    width: 1.35em;
+    height: 1.35em;
+    flex: none;
+    display: block;
+}
+
+/* Shipped 1 September 2026, and a visitor has no way to know that from a
+   button. On the button rather than beside it, so it cannot wrap away from
+   the thing it labels. */
+.btn.play::after {
+    content: "NEW";
+    position: absolute;
+    top: -8px;
+    right: -9px;
+    background: #f59e0b;
+    color: #1a1200;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
 /* --- callout ------------------------------------------------------------ */
 
 .callout {
