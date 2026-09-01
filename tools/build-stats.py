@@ -152,11 +152,23 @@ def code_facts(src_root):
         if n:
             out['shortcuts'] = str(n)
 
+    # COUNTED OFF SUPPORTED_EXTENSIONS[], not off every L".ext" in the file.
+    #
+    # The old regex swept the whole header and reported 49, which included
+    # .ini (the settings file), .log (the log), .bak (the history backup) and
+    # .qim / .qpr (qIV's own list formats). None of those is an image format,
+    # and the number was published on this page, on the qIV site, in the README
+    # and in about.html for weeks. The array below is the app's own answer to
+    # "what can I open", so it is the only honest source: 44.
     consts = os.path.join(src, 'Platform', 'Constants.h')
     if os.path.exists(consts):
-        n = len(set(re.findall(r'L"\.([a-z0-9]{2,5})"', read(consts))))
-        if n:
-            out['formats'] = str(n)
+        text = read(consts)
+        i = text.find('SUPPORTED_EXTENSIONS[] = {')
+        if i >= 0:
+            block = text[i:text.index('};', i)]
+            n = len(set(re.findall(r'L"\.([a-z0-9]+)"', block)))
+            if n:
+                out['formats'] = str(n)
     return out
 
 
