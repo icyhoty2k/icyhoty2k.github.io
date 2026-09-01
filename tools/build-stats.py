@@ -225,7 +225,11 @@ def render(s):
         ('clock', s['updated'], 'last updated', REPO_URL + '/commits', s['updated']),
         ('box', '%.1f MB' % s['exe_mb'] if s['exe_mb'] else '', 'single .exe',
          REPO_URL + '/releases/latest', s['exe_mb']),
-        ('image', s.get('formats', ''), 'image formats', SITE + '#format-support',
+        # "file extensions", not "image formats": the regex above counts unique
+        # L".ext" literals, and .jpg/.jpeg/.jpe are three of those and one format.
+        # The qIV site says "20+ formats" counting families, and the two read as a
+        # contradiction until each says which unit it is in.
+        ('image', s.get('formats', ''), 'file extensions', SITE + '#format-support',
          s.get('formats')),
         ('keyboard', s.get('shortcuts', ''), 'keyboard shortcuts', SITE + 'shortcuts.html',
          s.get('shortcuts')),
