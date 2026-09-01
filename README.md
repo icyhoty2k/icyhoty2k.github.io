@@ -20,8 +20,8 @@ rather than to any single product.
   image viewer for Windows 10 and 11. C++ against Win32 and Direct2D, no UI framework.
   [Source](https://github.com/icyhoty2k/QuickImageViewer).
 - **[qIV Remote](https://icyhoty2k.github.io/QuickImageViewer/qiv-remote.html)** — the
-  Android companion. In closed testing on Google Play and
-  [looking for testers](https://groups.google.com/g/qiv-remote-testers).
+  Android companion, on
+  [Google Play](https://play.google.com/store/apps/details?id=net.icyhoty2k.qivremote).
 
 ## How it is built
 
